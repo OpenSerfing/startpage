@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.start-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #fff;
+  background-size: cover;
+}
+
+.header {
+  position: absolute;
+  top: 20px;
+  text-align: center;
+}
+
+#time {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#searchBox, #searchEngine, button {
+  padding: 10px;
+  font-size: 1em;
+}
+
+.shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.folder {
+  cursor: pointer;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+}
