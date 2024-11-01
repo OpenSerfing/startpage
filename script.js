@@ -45,24 +45,42 @@ function addIconToDOM(iconData) {
   icon.textContent = iconData.name;
   icon.onclick = () => window.open(iconData.url, '_blank');
 
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = '🗑️';
+  deleteButton.onclick = (event) => {
+    event.stopPropagation(); // Prevent opening the link
+    deleteIcon(iconData);
+  };
+
+  icon.appendChild(deleteButton);
   document.getElementById('shortcuts').appendChild(icon);
 }
 
-// Change background image
-function setBackground() {
-  const backgrounds = [
-    "https://source.unsplash.com/random/1600x900?nature",
-    "https://source.unsplash.com/random/1600x900?city",
-    "https://source.unsplash.com/random/1600x900?abstract"
-  ];
-  document.body.style.backgroundImage = `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]})`;
+// Delete icon
+function deleteIcon(iconData) {
+  let icons = JSON.parse(localStorage.getItem('icons')) || [];
+  icons = icons.filter(icon => icon.name !== iconData.name || icon.url !== iconData.url);
+  localStorage.setItem('icons', JSON.stringify(icons));
+  document.getElementById('shortcuts').innerHTML = '';
+  loadIcons();
+}
+
+// Change theme
+function chooseTheme() {
+  const currentTheme = document.body.style.backgroundColor === 'black' ? 'white' : 'black';
+  document.body.style.backgroundColor = currentTheme;
+}
+
+// Toggle settings menu
+function toggleSettings() {
+  const settingsMenu = document.getElementById('settingsMenu');
+  settingsMenu.style.display = settingsMenu.style.display === 'flex' ? 'none' : 'flex';
 }
 
 // Initialize the start page
 function init() {
   updateTime();
   loadIcons();
-  setBackground();
 }
 
 init();
