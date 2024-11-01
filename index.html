@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +6,14 @@
   <title>OpenSerfing Start Page</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
   <div class="start-page">
     <div class="header">
       <h1>OpenSerfing</h1>
       <div id="time"></div>
     </div>
     <div class="search-container">
+      <h2>OpenSerfing Browser</h2>
       <select id="searchEngine">
         <option value="https://www.google.com/search?q=">Google</option>
         <option value="https://yandex.ru/search/?text=">Yandex</option>
@@ -22,9 +22,13 @@
       <input type="text" id="searchBox" placeholder="Search...">
       <button onclick="performSearch()">Search</button>
     </div>
+    <button onclick="toggleTheme()" class="theme-toggle">Toggle Theme</button>
     <div class="shortcuts" id="shortcuts">
-      <div class="folder" onclick="createIcon()">+ Add Icon</div>
+      <div class="folder add-icon" onclick="createIcon()">+ Add Icon</div>
     </div>
+    <footer>
+      <p>AnmiTali (CodeLeft)</p>
+    </footer>
   </div>
   <script src="script.js"></script>
 </body>
